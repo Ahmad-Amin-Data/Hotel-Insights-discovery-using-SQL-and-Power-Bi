@@ -172,7 +172,9 @@ LEFT JOIN dbo.meal_cost$
 4. **Load Data**
    - Review the imported data
    - Click **Load** to finalize
+     
 ![Hotel_Insights_Demo](Hotel-Insights-discovery-using-SQL-and-Power-Bi/Untitled design.gif)
+
 #### Q3: What trends can we see in the data?
 
 **Key Insights from Power BI Visualizations:**
