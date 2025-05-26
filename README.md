@@ -186,9 +186,7 @@ LEFT JOIN dbo.meal_cost$
 - **Average Daily Rate (ADR):** Rose from $99.53 in 2019 to $104.47 in 2020
 - **Booking Volume:** Total nights booked decreased from 2019 to 2020
 - **Discount Strategy:** Discount percentage increased from 2019 to 2020 to attract customers
-        ![Hotel Insights Demo](Untitled design.gif)
-
-## Data Source
+![Hotel Insights Demo](Hotel-Insights-discovery-using-SQL-and-Power-Bi/Untitled design.gif)## Data Source
 
 Hotel booking data spanning 2018-2020, including:
 - Booking details and guest information
