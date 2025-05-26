@@ -4,30 +4,216 @@ In this project I cover database creation in SSMS, SQL querying for analysis, an
 
 # How to Build a Data Analyst Portfolio
 
-A step-by-step tutorial demonstrating essential data analyst skills: database creation, SQL querying, and Power BI visualization using hotel booking data.
+A comprehensive tutorial demonstrating how to build an effective data analyst portfolio using SQL Server, SQL queries, and Power BI visualizations with hotel booking data.
+
+## Overview
+
+This tutorial covers the essential steps to create a professional data analyst portfolio by working with real hotel booking data. You'll learn to set up databases, perform data analysis with SQL, and create compelling visualizations using Power BI.
 
 ## Tutorial Steps
 
-### 1. Create a Database in SSMS
-- Connect to SQL Server Management Studio
-- Create new database and import hotel booking data from Excel
-- Troubleshoot common import errors (Microsoft Access Database Engine requirement)
+### 1. Create a Database
 
-### 2. Query and Analyze Data with SQL
+We'll start by creating a database in SSMS (SQL Server Management Studio) for analyzing Hotel Booking Data.
+
+#### Setup Process:
+
+1. **Open SQL Server Management Studio**
+   - A new window will appear on your screen
+   - Copy the Server Name for later use
+   - Click on **Connect**
+
+2. **Create New Database**
+   - Right-click on **Databases** in the SSMS window
+   - Select **New Database** from the dropdown
+   - Assign a Database Name in the New Database window
+   - Click **OK**
+
+3. **Import Data**
+   - Expand the Databases section to see your created Project database
+   - Right-click the Project database
+   - Select **Import Data** from the Task dropdown list
+   - In the Import Data dialog box, select your data source
+   - Browse data file or enter the file path
+   - Choose the Excel version and click **Next**
+
+   > **Note:** If you encounter an error, download Microsoft Access Database Engine 2016
+
+4. **Configure Import Settings**
+   - Select a destination and verify the server and database name
+   - Select tables you want to import
+   - Run immediately to import all data
+   - View the data by expanding the Tables node in the Databases pane
+
+### 2. Querying Data
+
+With our data tables prepared, let's explore the data using SQL commands.
+
+#### Fetching Data from Tables
+
+Use the wildcard `*` operator to retrieve all data from tables:
+
 ```sql
--- Basic data retrieval
 SELECT * FROM dbo.['2018$']
+SELECT * FROM dbo.['2019$']
+SELECT * FROM dbo.['2020$']
+```
 
--- Combine multiple years' data
+#### Combining Data
+
+Use the UNION operator to combine data from multiple tables:
+
+```sql
 SELECT * FROM dbo.['2018$']
 UNION
 SELECT * FROM dbo.['2019$']
 UNION
 SELECT * FROM dbo.['2020$']
+```
 
--- Revenue calculation by year
+### 3. Exploratory Data Analysis (EDA)
+
+We'll perform EDA to answer these key business questions:
+
+- Is our hotel revenue growing yearly?
+- Should we increase our parking lot size?
+- What trends can we see in the data?
+
+#### Creating a Temporary Combined Table
+
+```sql
+WITH hotels AS (
+    SELECT * FROM dbo.['2018$']
+    UNION
+    SELECT * FROM dbo.['2019$']
+    UNION
+    SELECT * FROM dbo.['2020$']
+)
+SELECT * FROM hotels
+```
+
+#### Q1: Is our hotel revenue growing yearly?
+
+Since we don't have direct revenue data, we'll calculate it using ADR (Average Daily Rate) and stay duration:
+
+```sql
 SELECT 
-  arrival_date_year,
-  SUM((stays_in_week_nights + stays_in_weekend_nights) * adr) AS revenue 
+    (stays_in_week_nights + stays_in_weekend_nights) * adr AS revenue 
+FROM hotels
+```
+
+**Revenue by Year:**
+```sql
+SELECT 
+    arrival_date_year,
+    SUM((stays_in_week_nights + stays_in_weekend_nights) * adr) AS revenue 
 FROM hotels 
 GROUP BY arrival_date_year
+```
+
+**Revenue by Hotel Type:**
+```sql
+SELECT 
+    arrival_date_year, 
+    hotel,
+    SUM((stays_in_week_nights + stays_in_weekend_nights) * adr) AS revenue 
+FROM hotels 
+GROUP BY arrival_date_year, hotel
+```
+
+**Finding:** Revenue increased from 2018 to 2019 but decreased in 2020.
+
+#### Q2: Should we increase our parking lot size?
+
+Analyze parking space utilization:
+
+```sql
+SELECT
+    arrival_date_year, 
+    hotel,
+    SUM((stays_in_week_nights + stays_in_weekend_nights) * adr) AS revenue,
+    CONCAT(
+        ROUND((SUM(required_car_parking_spaces)/SUM(stays_in_week_nights + stays_in_weekend_nights)) * 100, 2), 
+        '%'
+    ) AS parking_percentage
+FROM hotels 
+GROUP BY arrival_date_year, hotel
+```
+
+**Finding:** Current parking space is sufficient; no expansion needed.
+
+### 4. Create Data Visualizations Using Power BI
+
+#### Data Preprocessing with SQL Joins
+
+Prepare data by joining with additional tables:
+
+```sql
+WITH hotels AS (
+    SELECT * FROM dbo.['2018$']
+    UNION
+    SELECT * FROM dbo.['2019$']
+    UNION
+    SELECT * FROM dbo.['2020$']
+)
+SELECT * FROM hotels
+LEFT JOIN dbo.market_segment$
+    ON hotels.market_segment = market_segment$.market_segment
+LEFT JOIN dbo.meal_cost$
+    ON meal_cost$.meal = hotels.meal
+```
+
+#### Connecting to Power BI
+
+1. **Open Power BI Desktop**
+2. **Get Data**
+   - Click on **Get Data**
+   - Select **SQL Server**
+3. **Configure Connection**
+   - Enter your server name and database name
+   - Expand **Advanced options**
+   - Paste the SQL query in the "SQL text" field
+   - Click **OK**
+4. **Load Data**
+   - Review the imported data
+   - Click **Load** to finalize
+
+#### Q3: What trends can we see in the data?
+
+**Key Insights from Power BI Visualizations:**
+
+- **Revenue Trend:** Increased from 2018 to 2019, then decreased from 2019 to 2020
+- **Average Daily Rate (ADR):** Rose from $99.53 in 2019 to $104.47 in 2020
+- **Booking Volume:** Total nights booked decreased from 2019 to 2020
+- **Discount Strategy:** Discount percentage increased from 2019 to 2020 to attract customers
+
+## Skills Demonstrated
+
+This portfolio project showcases proficiency in:
+
+- **Database Management:** Creating and managing SQL Server databases
+- **SQL Querying:** Writing complex queries for data analysis
+- **Data Integration:** Importing and combining multiple data sources
+- **Exploratory Data Analysis:** Answering business questions through data
+- **Data Visualization:** Creating insights with Power BI
+- **Business Intelligence:** Translating data into actionable insights
+
+## Tools & Technologies
+
+- **SQL Server Management Studio (SSMS)**
+- **SQL Server Database**
+- **Microsoft Power BI**
+- **Excel Data Sources**
+- **Microsoft Access Database Engine**
+
+## Data Source
+
+Hotel booking data spanning 2018-2020, including:
+- Booking details and guest information
+- Revenue metrics (ADR, stay duration)
+- Market segments and meal costs
+- Parking requirements
+
+## Conclusion
+
+This comprehensive tutorial demonstrates how to build a complete data analyst portfolio by combining database management, SQL analysis, and business intelligence visualization. The project showcases real-world problem-solving skills essential for data analyst roles.
