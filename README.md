@@ -2,15 +2,14 @@
 In this project I cover database creation in SSMS, SQL querying for analysis, and Power BI visualization using hotel booking data. Includes EDA techniques to answer business questions about revenue trends, parking needs, and booking patterns
 
 
-# How to Build a Data Analyst Portfolio
 
-A comprehensive tutorial demonstrating how to build an effective data analyst portfolio using SQL Server, SQL queries, and Power BI visualizations with hotel booking data.
+## Business Case Overview
 
-## Overview
+In this project we use SQL & Power BI to answer 3 questions for our stakeholders:
+1- Is our hotel revenu growing by year ?
+2 - Should we increase our parking lot ?
+3 - What trends we can see in the data ?
 
-This tutorial covers the essential steps to create a professional data analyst portfolio by working with real hotel booking data. You'll learn to set up databases, perform data analysis with SQL, and create compelling visualizations using Power BI.
-
-## Tutorial Steps
 
 ### 1. Create a Database
 
@@ -18,18 +17,15 @@ We'll start by creating a database in SSMS (SQL Server Management Studio) for an
 
 #### Setup Process:
 
-1. **Open SQL Server Management Studio**
-   - A new window will appear on your screen
-   - Copy the Server Name for later use
-   - Click on **Connect**
 
-2. **Create New Database**
+
+ **Create New Database**
    - Right-click on **Databases** in the SSMS window
    - Select **New Database** from the dropdown
    - Assign a Database Name in the New Database window
    - Click **OK**
 
-3. **Import Data**
+ **Import Data**
    - Expand the Databases section to see your created Project database
    - Right-click the Project database
    - Select **Import Data** from the Task dropdown list
@@ -37,7 +33,6 @@ We'll start by creating a database in SSMS (SQL Server Management Studio) for an
    - Browse data file or enter the file path
    - Choose the Excel version and click **Next**
 
-   > **Note:** If you encounter an error, download Microsoft Access Database Engine 2016
 
 4. **Configure Import Settings**
    - Select a destination and verify the server and database name
@@ -186,7 +181,7 @@ LEFT JOIN dbo.meal_cost$
 - **Average Daily Rate (ADR):** Rose from $99.53 in 2019 to $104.47 in 2020
 - **Booking Volume:** Total nights booked decreased from 2019 to 2020
 - **Discount Strategy:** Discount percentage increased from 2019 to 2020 to attract customers
-![Hotel Insights Demo](Hotel-Insights-discovery-using-SQL-and-Power-Bi/Untitled design.gif)## Data Source
+![Hotel Insights Demo](Hotel-Insights-discovery-using-SQL-and-Power-Bi/Untitled design.gif)
 
 Hotel booking data spanning 2018-2020, including:
 - Booking details and guest information
