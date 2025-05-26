@@ -186,25 +186,7 @@ LEFT JOIN dbo.meal_cost$
 - **Average Daily Rate (ADR):** Rose from $99.53 in 2019 to $104.47 in 2020
 - **Booking Volume:** Total nights booked decreased from 2019 to 2020
 - **Discount Strategy:** Discount percentage increased from 2019 to 2020 to attract customers
-
-## Skills Demonstrated
-
-This portfolio project showcases proficiency in:
-
-- **Database Management:** Creating and managing SQL Server databases
-- **SQL Querying:** Writing complex queries for data analysis
-- **Data Integration:** Importing and combining multiple data sources
-- **Exploratory Data Analysis:** Answering business questions through data
-- **Data Visualization:** Creating insights with Power BI
-- **Business Intelligence:** Translating data into actionable insights
-
-## Tools & Technologies
-
-- **SQL Server Management Studio (SSMS)**
-- **SQL Server Database**
-- **Microsoft Power BI**
-- **Excel Data Sources**
-- **Microsoft Access Database Engine**
+![Hotel Insights Demo](Untitled design.gif)
 
 ## Data Source
 
@@ -214,6 +196,4 @@ Hotel booking data spanning 2018-2020, including:
 - Market segments and meal costs
 - Parking requirements
 
-## Conclusion
 
-This comprehensive tutorial demonstrates how to build a complete data analyst portfolio by combining database management, SQL analysis, and business intelligence visualization. The project showcases real-world problem-solving skills essential for data analyst roles.
