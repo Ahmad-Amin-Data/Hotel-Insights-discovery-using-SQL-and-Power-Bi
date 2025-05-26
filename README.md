@@ -6,8 +6,11 @@ In this project I cover database creation in SSMS, SQL querying for analysis, an
 ## Business Case Overview
 
 In this project we use SQL & Power BI to answer 3 questions for our stakeholders:
+
 1- Is our hotel revenu growing by year ?
+
 2 - Should we increase our parking lot ?
+
 3 - What trends we can see in the data ?
 
 
@@ -185,10 +188,5 @@ LEFT JOIN dbo.meal_cost$
 - **Discount Strategy:** Discount percentage increased from 2019 to 2020 to attract customers
 
 
-Hotel booking data spanning 2018-2020, including:
-- Booking details and guest information
-- Revenue metrics (ADR, stay duration)
-- Market segments and meal costs
-- Parking requirements
 
 
