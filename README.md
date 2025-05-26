@@ -23,25 +23,11 @@ We'll start by creating a database in SSMS (SQL Server Management Studio) for an
 
 
  **Create New Database**
-   - Right-click on **Databases** in the SSMS window
-   - Select **New Database** from the dropdown
-   - Assign a Database Name in the New Database window
-   - Click **OK**
+   
 
  **Import Data**
-   - Expand the Databases section to see your created Project database
-   - Right-click the Project database
-   - Select **Import Data** from the Task dropdown list
-   - In the Import Data dialog box, select your data source
-   - Browse data file or enter the file path
-   - Choose the Excel version and click **Next**
+  
 
-
-4. **Configure Import Settings**
-   - Select a destination and verify the server and database name
-   - Select tables you want to import
-   - Run immediately to import all data
-   - View the data by expanding the Tables node in the Databases pane
 
 ### 2. Querying Data
 
@@ -164,24 +150,21 @@ LEFT JOIN dbo.meal_cost$
 #### Connecting to Power BI
 
 1. **Open Power BI Desktop**
+
 2. **Get Data**
-   - Click on **Get Data**
-   - Select **SQL Server**
+   
 3. **Configure Connection**
-   - Enter your server name and database name
-   - Expand **Advanced options**
-   - Paste the SQL query in the "SQL text" field
-   - Click **OK**
+   
 4. **Load Data**
-   - Review the imported data
-   - Click **Load** to finalize
      
 ![Hotel-Dashboard](Untitled%20design.gif)
 
 #### Q3: What trends can we see in the data?
 
-**Key Insights from Power BI Visualizations:**
-
+**Findings & Key Insights from Power BI Visualizations:**
+- **Q1 answer:** Revenue increased from 2018 to 2019 but decreased in 2020.
+- **Q2 answer:** Current parking space is sufficient; no expansion needed.
+- **Q3 answer:** Trends:
 - **Revenue Trend:** Increased from 2018 to 2019, then decreased from 2019 to 2020
 - **Average Daily Rate (ADR):** Rose from $99.53 in 2019 to $104.47 in 2020
 - **Booking Volume:** Total nights booked decreased from 2019 to 2020
