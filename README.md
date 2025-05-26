@@ -176,7 +176,7 @@ LEFT JOIN dbo.meal_cost$
    - Review the imported data
    - Click **Load** to finalize
      
-![Hotel-Dashboard](Untitled design.gif)
+![Hotel-Dashboard](Untitled%20design.gif)
 
 #### Q3: What trends can we see in the data?
 
